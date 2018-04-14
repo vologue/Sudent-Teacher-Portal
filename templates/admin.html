@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <meta charset="UTF-8">
+    <title>Teacher Portal</title>
+    <body>
+    <div><p align="right"><a href="/">Sign out</a></p>
+    </div>
+    <div style="background:#2c3e50 ;color: #666666;font-family: 'RobotoDraft', 'Roboto', sans-serif;font-size: 14px;">
+        <br><h1 style="margin: 10 10 20px;font-size: 48px;font-weight: 400;color: #ffffff;">Welcome Admin!</h1><br>
+    </div>
+
+        <div style="position: relative;background: #ffffff;max-width:65%;width: 100%;max-height: 100%;box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);margin: 0 auto;input:focus;height:100%">
+            <table border = 0 style="font-size: 18px; margin: 10 10 20px">
+                <th >
+                    <td>Name</td>
+                    <td>sub1</td>
+                    <td>sub2</td>
+                    <td>sub3</td>
+                    <td>sub4</td>
+                </th>
+                {% for row in i %}
+                <div class="form">
+                <tr><form action="http://localhost:5000/update" method = "post" >
+                    <td ><h3>{{ row[4] }} </h3></td>
+                        <td ><input type="number" name="sub1" value={{ row[0] }} style="width:70%;" /></td>
+                        <td ><input type="number" name="sub2" value ={{ row[1] }} style="width:70%;" /></td>
+                        <td ><input type="number" name="sub3" value ={{ row[2] }} style="width:70%;" /></td>
+                        <td ><input type="number" name="sub4" value ={{ row[3] }} style="width:70%;"/></td>
+                        <td ><button name="name" value={{ row[4] }} type="submit" style="cursor: pointer;background: #33b5e5;border:0;padding:10px 15px;color: #ffffff;transition: 0.3s ease;"/> Update</button></td>
+                        <td style="width:7%;font-family: 'RobotoDraft', 'Roboto', sans-serif; font-size:11.5px">{% if na ==row[4] %}
+                            {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                            {% for message in messages %}
+                            {{ message }}
+                            {% endfor %}
+                            {% endif %}
+                            {% endwith %}
+                            {% else %}
+                            {% endif %}
+                        </td>
+                    </form>
+                </tr>
+                    <tr style="height: 100%; background: #ffffff"></tr>
+                </div>
+                {% endfor %}
+            </table>
+        </div>
+    <div style="width:20%;"></div>
+
+</head>
+</body>
+</html>
